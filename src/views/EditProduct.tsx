@@ -1,6 +1,12 @@
-import { Link, Form, useActionData, ActionFunctionArgs, redirect } from "react-router-dom"
+import { Link, Form, useActionData, ActionFunctionArgs, redirect, LoaderFunctionArgs } from "react-router-dom"
 import ErrorMessage from "../components/ErrorMessage"
 import { addProduct } from "../services/ProductService"
+
+export async function loader({ params }: LoaderFunctionArgs) {
+    console.log(params)
+
+    return {}
+}
 
 export const action = async ({ request }: ActionFunctionArgs) => {
     const data = Object.fromEntries(await request.formData())
